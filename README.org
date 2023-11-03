@@ -1,0 +1,17 @@
+* Pyraphernalia
+Python code snippets, utilities, practices, and tutorials.
+Split into blocks designated for different purposes.
+
+** OS
+Modules for talking to operating system.
+*** lsequels
+List file sequences as single entities.
+[[./os/lsequels/README.org]]
+
+** UI
+Modules for user interaction.
+*** hou
+Side FX Houdini interfaces.
+**** VEX_Occur
+Symbol occurrence in VEX-code wrangles.
+[[./ui/hou/vex_occur/README.org]]

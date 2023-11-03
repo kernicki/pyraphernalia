@@ -1,0 +1,43 @@
+* Symbol Occurrence in VEX wrangles
+Often times the scene can quickly become unmanageable with lots of running snippets that change attributes and group membership, add new primitives and points and so on so forth. In order to keep track of 'hidden' and invisible changes one should be able to stay on top of it by accessing keywords that contribute to the final state and are potentially unsafe. To quickly find the node that adds new primitives one can search for the string "addprim", for example. Or manipulate color ("@Cd"). The widget will filter the existing 'codebase' on a particular symbol occurrence that may be scattered all over the scene with hundred's of crunching VEX mini-programs.
+
+** Install
+*** Manual
+Replace XX.X with the version of Houdini installed. (eg. 19.0)
+- copy vex_occur.pypanel ~/houdiniXX.X/python_panels/
+- copy vex_occur.py to ~/houdiniXX.X/python3.7libs/
+- add an entry ("vex_occur") to ~/houdiniXX.X/PaneTabTypeMenu.xml
+  #+BEGIN_SRC nxml
+    <actionItem id="pythonpanel::vex_occur">
+              <label>VEX Occur</label>
+    </actionItem>
+  #+END_SRC
+
+*** Command line (automatic install)
+The install.sh script will try to install the files based on $HFS variable.
+#+BEGIN_SRC shell
+  git clone https://github.com/kernicki/pyraphernalia.git
+  cd pyraphernalia/ui/hou/vex_occur
+  cd /opt/hfs19.0/ && source ./houdini_setup && cd -
+  ./install.sh
+#+END_SRC
+
+** Usage
+
+- Add "VEX Occur" pane tab (+)
+  
+- Enter the symbol you search for.
+  This could be any literal or expression.
+  
+- Select whether to search in the selected node/network(s) only.
+  One can quickly narrow down the search to a few selected nodes.
+   
+- Select whether the code is inside digital asset (locked).
+  Sometimes one needs to check whether the code is run by an asset.
+    
+- Select whether the code is not evaluated or by-passed.
+  Just in case...
+
+** Future
+Currently the script works only on SOP wrangles. One can extend the functionality for other contexts as well. Also, it traverses the whole network with the nodes not at all contributing to the final result, which may be misleading. So there should be a way to ignore, disregard these.
+Ideally to manage code in a more robust manner one should have a lot more instruments. "Code-spreadsheet", rename symbols (attribute name, for example), copy'n'paste, refactoring, sourcing, publishing, importing etc.

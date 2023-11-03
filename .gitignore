@@ -1,0 +1,8 @@
+*.pyc
+**/dist/
+**/__temp_tests/
+**/*.egg-info
+**/*.egg*
+*~
+[#]*[#]
+.\#*

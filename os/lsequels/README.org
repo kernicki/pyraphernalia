@@ -1,0 +1,38 @@
+* lsequels
+
+[[../../images/py_lseq.png]]
+
+L(ist file )seque(nces as sing)l(e entitie)s
+Python module and command line executable to get file listings with file sequences detection.
+Called form python returns a list of tuples with metadata. 
+
+** Install 
+#+BEGIN_SRC bash
+  git clone https://github.com/kernicki/pyraphernalia.git
+  cd pyraphernalia/os/lsequels/
+  python setup.py install
+#+END_SRC
+
+** Tests
+#+BEGIN_SRC bash
+  cd pyraphernalia/os/lsequels/
+  ./generate_seqs.sh # this will generate file sequences
+  lsequels --dir lsequels/tests/__temp_tests/ # should print a nice table if installed
+  python lsequels/command_line.py --dir lsequels/tests/__temp_tests/ ## same as above but run from source directory
+#+END_SRC
+
+** Usage
+Once installed it can run from everywhere
+*** from Python
+Returns a list of tuples with basename, extension, size, mtime, and ranges.
+#+BEGIN_SRC python
+  import lsequels
+  sequel = lsequels.Sequel("directory/with/sequences")
+  sequences = sequel.get() 
+#+END_SRC
+
+*** command line
+Prints out a table with basename, extension, size, mtime, and ranges for each file in the directory.
+#+BEGIN_SRC bash
+  lsequels --dir directory/with/sequences
+#+END_SRC
