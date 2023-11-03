@@ -1,4 +1,7 @@
 * Symbol Occurrence in VEX wrangles
+
+[[../../../images/vex_occur.png]]
+
 Often times the scene can quickly become unmanageable with lots of running snippets that change attributes and group membership, add new primitives and points and so on so forth. In order to keep track of 'hidden' and invisible changes one should be able to stay on top of it by accessing keywords that contribute to the final state and are potentially unsafe. To quickly find the node that adds new primitives one can search for the string "addprim", for example. Or manipulate color ("@Cd"). The widget will filter the existing 'codebase' on a particular symbol occurrence that may be scattered all over the scene with hundred's of crunching VEX mini-programs.
 
 ** Install
